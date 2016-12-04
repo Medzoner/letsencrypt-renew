@@ -12,4 +12,6 @@ sudo ./renew.sh [domain1,domain2,...]
 
 ## Execute monthly task of the script: 
 sudo crontab -e
-30 3 * * 0 /path/renew.sh >> /var/log/letsencrypt/renewal.log
+```
+30 3 * * 0 /path/renew.sh [domain1,domain2,...] >> /var/log/letsencrypt/renewal.log
+```
