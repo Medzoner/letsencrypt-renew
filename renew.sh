@@ -12,9 +12,12 @@ exp_limit=30;
 
 domains=$1
 if [ -z "$domains" ] ; then
-        echo "[ERROR] you must provide the domain name for the certificate renewal."
+        echo "[ERROR] Specified the domains name for the certificates renewal."
         exit 1;
 fi
+
+echo "Stopping Nginx..."
+/usr/sbin/service nginx restart
 
 "$le_path"/letsencrypt-auto certonly --nginx --renew-by-default --domains "${domains}"
 
