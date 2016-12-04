@@ -17,12 +17,12 @@ if [ -z "$domains" ] ; then
 fi
 
 echo "Stopping Nginx..."
-/usr/sbin/service nginx restart
+/usr/sbin/service nginx stop
 
 "$le_path"/letsencrypt-auto certonly --nginx --renew-by-default --domains "${domains}"
 
 echo "Restarting Nginx..."
-/usr/sbin/service nginx restart
+/usr/sbin/service nginx start
 
 echo "Renewal process finished for domain $domains"
 exit 0;
